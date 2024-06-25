@@ -28,3 +28,16 @@ function isPalindrome(str) {
     }
     return isPalindrome(str.slice(1, str.length -1));
 }
+function findIndex(arr, str) {
+    if (arr.length === 0) {
+        return -1;
+    }
+    if (arr[0] === str) {
+        return 0;
+    }
+    let idx = findIndex(arr.slice(1), str);
+    if (idx === -1) {
+        return -1;
+    }
+    return idx + 1;
+}
