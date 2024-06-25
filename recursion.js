@@ -47,3 +47,14 @@ function revString(str) {
     }
     return revString(str.slice(1)) + str.charAt(0);
 }
+function gatherStrings(obj) {
+    let stringArr = [];
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            stringArr.push(obj[key]);
+        } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            stringArr = stringArr.concat(gatherStrings(obj[key]));
+        }
+    }
+    return stringArr;
+}
