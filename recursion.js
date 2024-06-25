@@ -41,3 +41,9 @@ function findIndex(arr, str) {
     }
     return idx + 1;
 }
+function revString(str) {
+    if (str === "") {
+        return "";
+    }
+    return revString(str.slice(1)) + str.charAt(0);
+}
